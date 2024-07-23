@@ -1,10 +1,11 @@
-import { fireEvent, render,screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import Formulario from "./Formulario";
+import { RecoilRoot } from "recoil";
 
 //Jest -Test
-test('Quando o inpout está vazio,novos participantes não podem ser adicionados',()=> {
-    render(<Formulario/>)
+test('Quando o inpout está vazio,novos participantes não podem ser adicionados', () => {
+    render(<Formulario />)
     //Encontrar no DOM o input
     const input = screen.getByPlaceholderText('Insira os nomes dos participantes')
     //Encontrar o botão
@@ -16,16 +17,19 @@ test('Quando o inpout está vazio,novos participantes não podem ser adicionados
 
 })
 
-test('Adicionar um participante caso exista um nome preenchido',()=>{
-    render(<Formulario/>)
+test('Adicionar um participante caso exista um nome preenchido', () => {
+    render(
+    <RecoilRoot>
+        <Formulario />
+    </RecoilRoot>)
     //Encontrar no DOM o input
     const input = screen.getByPlaceholderText('Insira os nomes dos participantes')
     //Encontrar o botão
     const botao = screen.getByRole('button')
     //Inserir um valor no input
-    fireEvent.change(input,{
-        target:{
-            value:'Vanessa'
+    fireEvent.change(input, {
+        target: {
+            value: 'Vanessa'
         }
     })
     //Clicar no botão de submeter
@@ -34,4 +38,28 @@ test('Adicionar um participante caso exista um nome preenchido',()=>{
     expect(input).toHaveFocus()
     //Garantir que o input não tenha um valor
     expect(input).toHaveValue("")
+})
+
+test('Nomes duplicados não podem ser adiconados na lista',()=>{
+    render(
+        <RecoilRoot>
+            <Formulario />
+        </RecoilRoot>)
+        const input = screen.getByPlaceholderText('Insira os nomes dos participantes')
+        const botao = screen.getByRole('button')
+        fireEvent.change(input, {
+            target: {
+                value: 'Vanessa'
+            }
+        })
+        fireEvent.click(botao)
+        fireEvent.change(input, {
+            target: {
+                value: 'Vanessa'
+            }
+        })
+        fireEvent.click(botao)
+
+        const mensagemErro = screen.getByRole('alert')
+        expect(mensagemErro.textContent).toBe('Nomes duplicados não são permitidos')
 })
