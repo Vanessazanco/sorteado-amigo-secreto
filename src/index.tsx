@@ -7,7 +7,7 @@ import Cabecalho from './componentes/Cabecalho';
 ReactDOM.render(
   <React.StrictMode>
     <Cabecalho/>
-    <App />
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
