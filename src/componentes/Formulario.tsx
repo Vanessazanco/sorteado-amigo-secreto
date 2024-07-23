@@ -1,7 +1,19 @@
+import React, { useState } from "react"
+
 const Formulario = () => {
-    return (<form>
-        <input type="text" placeholder="Insira os nomes dos participantes" />
-        <button disabled ={true}>Adicionar</button>
+    const [nome,setNome] = useState('')
+    const adiconarParticipante = (evento:React.FormEvent<HTMLFormElement>) =>{
+        evento.preventDefault()
+        
+    }
+
+    return (<form onSubmit={adiconarParticipante}>
+        <input
+        value={nome}
+        onChange={evento =>setNome(evento.target.value)}
+        type="text" 
+        placeholder="Insira os nomes dos participantes" />
+        <button disabled ={!nome}>Adicionar</button>
     </form>)
 }
     export default Formulario
