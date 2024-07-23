@@ -5,7 +5,10 @@ import { RecoilRoot } from "recoil";
 
 //Jest -Test
 test('Quando o inpout está vazio,novos participantes não podem ser adicionados', () => {
-    render(<Formulario />)
+    render(
+        <RecoilRoot>
+            <Formulario />
+        </RecoilRoot>)
     //Encontrar no DOM o input
     const input = screen.getByPlaceholderText('Insira os nomes dos participantes')
     //Encontrar o botão
