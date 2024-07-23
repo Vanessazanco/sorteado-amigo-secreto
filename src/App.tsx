@@ -1,9 +1,17 @@
 import React from 'react';
+import { BrowserRouter, Routes } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
 
 
 function App() {
   return (
-    <h1>Em construção</h1>
+    <BrowserRouter>
+      <RecoilRoot>
+        <Routes>
+
+        </Routes>
+      </RecoilRoot>
+    </BrowserRouter> >
   );
 }
 
