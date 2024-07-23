@@ -8,6 +8,9 @@ export const useAdiconarParticipante = () => {
         return (nomeDoParticpante :string) => {
             if (list.includes(nomeDoParticpante)) {
                 setErro('Nomes duplicados não são permitidos')
+                setTimeout(()=>{
+                    setErro("")
+                },6000)
                 return
             }
             return setLista(listaAtual => [...listaAtual,nomeDoParticpante])
