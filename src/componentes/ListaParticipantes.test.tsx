@@ -2,8 +2,18 @@ import React from "react"
 import { RecoilRoot } from "recoil"
 import { render,screen } from "@testing-library/react"
 import ListaParticipantes from "./ListaParticipantes"
+import { useListaDeParticipantes } from "../state/hooks/useListaDeParticipantes"
+
+jest.mock('../state/hooks/useListaDeParticipantes',() => {
+    return {
+        useListaDeParticipantes: jest.fn()
+    }
+})
 
 describe('Uma lista vazia de participantes',()=>{
+    beforeEach(()=>{
+        (useListaDeParticipantes as jest.Mock).mockReturnValue([])
+    })
   test('Deve ser renderizada sem elementos',()=>{
     render(<RecoilRoot>
         <ListaParticipantes/>
@@ -14,8 +24,11 @@ describe('Uma lista vazia de participantes',()=>{
   })
 })
 describe('Uma lista preenchida de participantes',()=>{
+    beforeEach(()=>{
+        (useListaDeParticipantes as jest.Mock).mockReturnValue(participantes)
+    })
     const participantes = ['Vanessa','Catarina']
-    test('Deve ser renderizada sem elementos',()=>{
+    test('Deve ser renderizada com elementos',()=>{
       render(<RecoilRoot>
           <ListaParticipantes/>
       </RecoilRoot>)
