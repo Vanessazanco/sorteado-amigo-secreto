@@ -2,7 +2,7 @@ import { fireEvent, render,screen } from "@testing-library/react";
 import React from "react";
 import { RecoilRoot } from "recoil";
 import Rodape from "./Rodape";
-import { useListaDeParticipantes } from "../state/hooks/useListaDeParticipantes";
+import { useListaDeParticipantes } from "../../state/hooks/useListaDeParticipantes";
 import { useNavigate } from "react-router-dom";
 
 jest.mock('../state/hooks/useListaDeParticipantes',() => {
