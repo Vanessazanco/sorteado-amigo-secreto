@@ -1,6 +1,6 @@
 import Card from "../Card"
 import Formulario from "../Formulario/Formulario"
-import ListaParticipantes from "../ListaParticipantes"
+import ListaParticipantes from "../ListaParticipantes/ListaParticipantes"
 import Rodape from "../Rodape/Rodape"
 
 const Configuracao=()=>{
