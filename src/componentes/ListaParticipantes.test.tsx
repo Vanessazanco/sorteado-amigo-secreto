@@ -13,3 +13,14 @@ describe('Uma lista vazia de participantes',()=>{
     expect(itens).toHaveLength(0)
   })
 })
+describe('Uma lista preenchida de participantes',()=>{
+    const participantes = ['Vanessa','Catarina']
+    test('Deve ser renderizada sem elementos',()=>{
+      render(<RecoilRoot>
+          <ListaParticipantes/>
+      </RecoilRoot>)
+  
+      const itens = screen.queryAllByRole('listitem')
+      expect(itens).toHaveLength(participantes.length)
+    })
+  })
