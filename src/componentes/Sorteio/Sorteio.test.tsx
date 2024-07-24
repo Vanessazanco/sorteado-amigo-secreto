@@ -16,7 +16,7 @@ jest.mock('../state/hook/useResultadoSorteio', () => {
     }
 })
 
-describe('na pagina de sorteio', () => {
+describe('Na pagina de sorteio', () => {
     const participantes = [
         'Maria',
         'Vanessa',
@@ -32,7 +32,7 @@ describe('na pagina de sorteio', () => {
         (useListaDeParticipantes as jest.Mock).mockReturnValue(participantes);
         (useResultadoSorteio as jest.Mock).mockReturnValue(resultado);
     })
-    test('todos os participantes podem exibir o seu amigo secreto', () => {
+    test('Todos os participantes podem exibir o seu amigo secreto', () => {
         render(<RecoilRoot>
             <Sorteio />
         </RecoilRoot>)
@@ -40,7 +40,7 @@ describe('na pagina de sorteio', () => {
         const opcoes = screen.queryAllByRole('option')
         expect(opcoes).toHaveLength(participantes.length)
     })
-    test('o amigo secreto é exibido quando solicitado', () => {
+    test('O amigo secreto é exibido quando solicitado', () => {
         render(<RecoilRoot>
             <Sorteio />
         </RecoilRoot>)
