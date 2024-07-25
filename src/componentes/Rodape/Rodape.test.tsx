@@ -5,7 +5,7 @@ import Rodape from "./Rodape";
 import { useListaDeParticipantes } from "../../state/hooks/useListaDeParticipantes";
 import { useNavigate } from "react-router-dom";
 
-jest.mock('../state/hooks/useListaDeParticipantes',() => {
+jest.mock('../../state/hooks/useListaDeParticipantes',() => {
     return {
         useListaDeParticipantes: jest.fn()
     }

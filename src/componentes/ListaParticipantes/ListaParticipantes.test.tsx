@@ -4,7 +4,7 @@ import { render,screen } from "@testing-library/react"
 import ListaParticipantes from "./ListaParticipantes"
 import { useListaDeParticipantes } from "../../state/hooks/useListaDeParticipantes"
 
-jest.mock('../state/hooks/useListaDeParticipantes',() => {
+jest.mock('../../state/hooks/useListaDeParticipantes',() => {
     return {
         useListaDeParticipantes: jest.fn()
     }

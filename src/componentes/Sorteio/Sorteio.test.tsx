@@ -5,12 +5,12 @@ import { useListaDeParticipantes } from "../../state/hooks/useListaDeParticipant
 import { useResultadoSorteio } from "../../state/hooks/useResultadoSorteio"
 import Sorteio from "./Sorteio";
 
-jest.mock('../state/hook/useListaDeParticipantes', () => {
+jest.mock('../../state/hooks/useListaDeParticipantes', () => {
     return {
         useListaDeParticipantes: jest.fn()
     }
 })
-jest.mock('../state/hook/useResultadoSorteio', () => {
+jest.mock('../../state/hooks/useResultadoSorteio', () => {
     return {
         useResultadoSorteio: jest.fn()
     }
