@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useListaDeParticipantes } from "../../state/hooks/useListaDeParticipantes";
 import { useResultadoSorteio } from "../../state/hooks/useResultadoSorteio";
 import Card from "../Card";
-import './Sorteio.css'
+import './Sorteio.css';
 
 const Sorteio = () => {
     const participantes = useListaDeParticipantes()
