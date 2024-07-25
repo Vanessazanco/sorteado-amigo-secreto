@@ -31,9 +31,10 @@ exports[`A pagina de configuracao Deve ser renderizada corretamente 1`] = `
         class="rodape-configuracoes"
       >
         <button
+          class="botao"
           disabled=""
         >
-          Iniciar Brincadeira
+          Iniciar brincadeira
         </button>
         <img
           alt="Sacolas de compras"
